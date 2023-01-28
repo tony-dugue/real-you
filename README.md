@@ -29,12 +29,13 @@ npm install
 yarn install
 ```
 
-- dans le dossier server, à la racine, créer un fichier .env avec ce contenu (remplacer les données de connexion xxxx à une base de données MongoDB)
+- dans le dossier server, à la racine, créer un fichier .env avec ce contenu (remplacer les données de connexion xxxx à une base de données MongoDB) et la clé pour JWT
 
 [Lien pour créer une bdd MongoDB](https://www.mongodb.com/cloud)
 
 ```bash
 MONGO_URL='mongodb+srv://xxxx:xxxx@xxxx.mongodb.net/?retryWrites=true&w=majority'
+JWT_SECRET='xxxxx'
 PORT=3001
 ```
 
