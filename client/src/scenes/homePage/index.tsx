@@ -1,7 +1,15 @@
 import React, { FunctionComponent } from "react";
+import { Box } from "@mui/material";
+import Navbar from "../navbar";
 
 const HomePage: FunctionComponent = () => {
-  return <div>homepage</div>;
+  return (
+    <Box>
+      <Navbar />
+    </Box>
+  )
 };
 
 export default HomePage;
+
+
