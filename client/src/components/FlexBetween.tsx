@@ -4,9 +4,10 @@ import { Box } from "@mui/material";
 type Props = {
   children?: React.ReactNode;
   sx?: {};
+  onClick?: () => void;
 };
 
-const FlexBetween: FunctionComponent<Props> = ({ children, sx }) => {
+const FlexBetween: FunctionComponent<Props> = ({ children, sx, onClick }) => {
   return (
     <Box
       sx={{
@@ -15,6 +16,7 @@ const FlexBetween: FunctionComponent<Props> = ({ children, sx }) => {
         alignItems: "center",
         ...sx,
       }}
+      onClick={onClick}
     >
       {children}
     </Box>

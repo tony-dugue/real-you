@@ -1,5 +1,12 @@
 import React, { FunctionComponent, useState } from "react";
-import { Box, Button, TextField, Typography, useTheme, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  Button,
+  TextField,
+  Typography,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 import FlexBetween from "../../components/FlexBetween";
 import { Formik } from "formik";
 import * as yup from "yup";
@@ -70,10 +77,13 @@ const Form: FunctionComponent = () => {
     }
     formData.append("picturePath", values.picture.name);
 
-    const savedUserResponse = await fetch("http://localhost:3001/auth/register", { 
-      method: "POST", 
-      body: formData 
-    });
+    const savedUserResponse = await fetch(
+      "http://localhost:3001/auth/register",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
     const savedUser = await savedUserResponse.json();
     onSubmitProps.resetForm();
     if (savedUser) setPageType("login");
@@ -104,13 +114,24 @@ const Form: FunctionComponent = () => {
       initialValues={isRegister ? initialValuesLogin : initialValuesRegister}
       validationSchema={isLogin ? loginSchema : registerSchema}
     >
-      {({ values, errors, touched, handleBlur, handleChange, handleSubmit, setFieldValue, resetForm }) => (
+      {({
+        values,
+        errors,
+        touched,
+        handleBlur,
+        handleChange,
+        handleSubmit,
+        setFieldValue,
+        resetForm,
+      }) => (
         <form onSubmit={handleSubmit}>
           <Box
             display="grid"
             gap="30px"
             gridTemplateColumns="repeat(4, minmax(0, 1fr))"
-            sx={{ "& > div": { gridColumn: isNonMobile ? undefined : "span 4" } }}
+            sx={{
+              "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
+            }}
           >
             {isRegister && (
               <>
@@ -165,7 +186,7 @@ const Form: FunctionComponent = () => {
                   p="1rem"
                 >
                   <Dropzone
-                    accept={{'image/jpeg': ['.jpg', '.jpeg', '.png']}}
+                    accept={{ "image/jpeg": [".jpg", ".jpeg", ".png"] }}
                     multiple={false}
                     onDrop={(acceptedFiles) =>
                       setFieldValue("picture", acceptedFiles[0])
@@ -193,9 +214,9 @@ const Form: FunctionComponent = () => {
                 </Box>
               </>
             )}
-            
+
             <TextField
-              label="Votre email"
+              label="Votre email (john@doe.com)"
               onBlur={handleBlur}
               onChange={handleChange}
               value={values.email}
@@ -205,7 +226,7 @@ const Form: FunctionComponent = () => {
               sx={{ gridColumn: "span 4" }}
             />
             <TextField
-              label="Votre mot de passe"
+              label="Votre mot de passe (password)"
               type="password"
               onBlur={handleBlur}
               onChange={handleChange}
