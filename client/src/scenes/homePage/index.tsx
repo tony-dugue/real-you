@@ -3,6 +3,7 @@ import { Box, useMediaQuery } from "@mui/material";
 import Navbar from "../navbar";
 import { useAppSelector } from "../../hooks/custom-redux-hooks";
 import UserWidget from "../widgets/UserWidget";
+import AddPostWidget from "../widgets/AddPostWidget";
 
 const HomePage: FunctionComponent = () => {
 
@@ -25,7 +26,7 @@ const HomePage: FunctionComponent = () => {
         </Box>
 
         <Box flexBasis={isNonMobile ? "42%" : undefined} mt={isNonMobile ? undefined : "2rem"}>
-          colonne milieu
+          { user && <AddPostWidget userId={user._id} picturePath={user.picturePath} />}
         </Box>
 
         {isNonMobile && (
