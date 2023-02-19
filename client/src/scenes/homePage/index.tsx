@@ -6,6 +6,7 @@ import UserWidget from "../widgets/UserWidget";
 import AddPostWidget from "../widgets/AddPostWidget";
 import PostsWidget from "../widgets/PostsWidget";
 import AdvertWidget from "../widgets/AdvertWidget";
+import FriendListWidget from "../widgets/FriendListWidget";
 
 const HomePage: FunctionComponent = () => {
 
@@ -39,6 +40,10 @@ const HomePage: FunctionComponent = () => {
         {isNonMobile && (
           <Box flexBasis="26%">
               <AdvertWidget />
+
+              <Box m="2rem 0">
+                { user && <FriendListWidget userId={user._id} /> }
+              </Box>
           </Box>
         )}
       </Box>
