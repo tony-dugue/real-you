@@ -5,6 +5,7 @@ import { useAppSelector } from "../../hooks/custom-redux-hooks";
 import UserWidget from "../widgets/UserWidget";
 import AddPostWidget from "../widgets/AddPostWidget";
 import PostsWidget from "../widgets/PostsWidget";
+import AdvertWidget from "../widgets/AdvertWidget";
 
 const HomePage: FunctionComponent = () => {
 
@@ -37,7 +38,7 @@ const HomePage: FunctionComponent = () => {
 
         {isNonMobile && (
           <Box flexBasis="26%">
-            colonne droite
+              <AdvertWidget />
           </Box>
         )}
       </Box>

@@ -36,7 +36,8 @@ const Friend: FunctionComponent<FriendProps> = ({
   const main = palette.neutral.main;
   const medium = palette.neutral.medium;
 
-  const isFriend = user && user.friends.find((friend) => friend._id === friendId);
+  const isFriend =
+    user && user.friends.find((friend) => friend._id === friendId);
 
   const patchFriend = async () => {
     const response = await fetch(
