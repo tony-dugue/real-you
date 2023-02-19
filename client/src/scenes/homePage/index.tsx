@@ -4,6 +4,7 @@ import Navbar from "../navbar";
 import { useAppSelector } from "../../hooks/custom-redux-hooks";
 import UserWidget from "../widgets/UserWidget";
 import AddPostWidget from "../widgets/AddPostWidget";
+import PostsWidget from "../widgets/PostsWidget";
 
 const HomePage: FunctionComponent = () => {
 
@@ -26,7 +27,12 @@ const HomePage: FunctionComponent = () => {
         </Box>
 
         <Box flexBasis={isNonMobile ? "42%" : undefined} mt={isNonMobile ? undefined : "2rem"}>
-          { user && <AddPostWidget userId={user._id} picturePath={user.picturePath} />}
+          { user && (
+            <>
+             <AddPostWidget userId={user._id} picturePath={user.picturePath} />
+             <PostsWidget userId={user._id} />
+            </>
+          )}
         </Box>
 
         {isNonMobile && (

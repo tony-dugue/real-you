@@ -1,5 +1,6 @@
 export default interface Post {
   _id?: string;
+  userId: string;
   firstName: string;
   lastName: string;
   location?: string;

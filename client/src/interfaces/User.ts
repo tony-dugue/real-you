@@ -5,7 +5,7 @@ export default interface User {
   email?: string;
   password?: string;
   picturePath: string;
-  friends?: Array<string>;
+  friends: Array<{ _id: string, firstName: string, lastName: string, occupation: string, location: string, picturePath: string }> | [];
   location?: string;
   occupation?: string;
   viewedProfile: number;
